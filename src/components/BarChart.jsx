@@ -10,7 +10,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
 import { mockBarData as data } from "../data/mockData";
 
-const BarChart = () => {
+const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -18,6 +18,7 @@ const BarChart = () => {
     <ResponsiveBar
       data={data}
       theme={{
+        // added
         axis: {
           domain: {
             line: {
@@ -72,23 +73,9 @@ const BarChart = () => {
           spacing: 10,
         },
       ]}
-      fill={[
-        {
-          match: {
-            id: "fries",
-          },
-          id: "dots",
-        },
-        {
-          match: {
-            id: "sandwich",
-          },
-          id: "lines",
-        },
-      ]}
       borderColor={{
         from: "color",
-        modifiers: [["darker", 1.6]],
+        modifiers: [["darker", "1.6"]],
       }}
       axisTop={null}
       axisRight={null}
@@ -96,7 +83,7 @@ const BarChart = () => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "country",
+        legend: isDashboard ? undefined : "country", // changed
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -104,11 +91,12 @@ const BarChart = () => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "food",
+        legend: isDashboard ? undefined : "food", // changed
         legendPosition: "middle",
         legendOffset: -40,
       }}
       enableLabel={false}
+      labelSkipWidth={12}
       labelSkipHeight={12}
       labelTextColor={{
         from: "color",
@@ -139,7 +127,6 @@ const BarChart = () => {
         },
       ]}
       role="application"
-      ariaLabel="Nivo bar chart demo"
       barAriaLabel={function(e) {
         return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
       }}
