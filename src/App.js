@@ -12,9 +12,9 @@ import Form from "./scenes/form";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar";
-// import Line from "./scenes/line";
-// import Pie from "./scenes/pie";
-// import Geography from "./scenes/geography";
+import Line from "./scenes/line";
+import Pie from "./scenes/pie";
+import Geography from "./scenes/geography";
 
 
 /* Adding <CssBaseline /> inside of the <ThemeProvider> component will also enable dark mode for the app's background. */
@@ -40,9 +40,9 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/bar" element={<Bar />} />
               <Route path="/calendar" element={<Calendar />} /> 
-              {/*<Route path="/line" element={<Line />} />
               <Route path="/pie" element={<Pie />} />
-              <Route path="/geography" element={<Geography />} />*/}
+              <Route path="/line" element={<Line />} />
+              <Route path="/geography" element={<Geography />} />
               
             </Routes>
           </main>  
