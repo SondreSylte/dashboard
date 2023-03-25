@@ -3,6 +3,7 @@ import { useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import { tokens } from "../theme";
 import { mockLineData as data } from "../data/mockData";
+import { Troubleshoot } from "@mui/icons-material";
 
 const LineChart = (isDashboard = false) => {
   const theme = useTheme();
@@ -62,7 +63,7 @@ const LineChart = (isDashboard = false) => {
         orient: "bottom",
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: 0,
+        tickRotation: -30,
         legend: isDashboard ? undefined: "transportation",
         legendOffset: 36,
         legendPosition: "middle",
@@ -78,6 +79,7 @@ const LineChart = (isDashboard = false) => {
         legendPosition: "middle",
       }}
       pointSize={10}
+      enablePointLabel = {true}
       pointColor={{ from: "color", modifiers: [] }}
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
